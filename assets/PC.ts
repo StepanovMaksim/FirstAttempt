@@ -25,15 +25,15 @@ export class PC extends Component {
 			if (positionY < this.node.position.y) {
 				if (this.node.position.y > 115) {
 					if (this.node.position.x < positionX - 20)
-						this.rigidbody.applyForceToCenter(new Vec2(this.speed*1000, -this.speed*100), true)
+						this.rigidbody.applyForceToCenter(new Vec2(this.speed*2000, -this.speed*100), true)
 					else if (this.node.position.x > positionX + 20)
-						this.rigidbody.applyForceToCenter(new Vec2(-this.speed*1000, -this.speed*100), true)
+						this.rigidbody.applyForceToCenter(new Vec2(-this.speed*2000, -this.speed*100), true)
 					else if (
 						this.node.position.x > positionX - 20 &&
 						this.node.position.x < positionX + 20
 					)
 						this.rigidbody.applyForceToCenter(
-							new Vec2(0, -this.speed * 500),
+							new Vec2(0, -this.speed * 1000),
 							true
 						)
 
