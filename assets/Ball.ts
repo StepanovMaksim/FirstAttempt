@@ -1,4 +1,4 @@
-import { _decorator, BoxCollider2D, CircleCollider2D, Component, Contact2DType, IPhysics2DContact, Node, RigidBody2D, Vec2, Label } from 'cc';
+import { _decorator, BoxCollider2D, CircleCollider2D, Component, Contact2DType, IPhysics2DContact, Node, RigidBody2D, Vec2, Label, PolygonCollider2D } from 'cc';
 import { PosStartBall } from './PosStartBall';
 const { ccclass, property } = _decorator;
 
@@ -13,7 +13,7 @@ export class Ball extends Component {
 	private WindowWin: Node | null = null
 	@property({ type: Node })
 	private WindowLose: Node | null = null
-	
+
 	private scorePlayer: number = 0
 	private scoreEnemy: number = 0
 	public static stepNow: boolean
@@ -49,10 +49,12 @@ export class Ball extends Component {
 		positionY = this.node.position.y
 		if (this.contactLose) {
 			this.timeContactLose += deltaTime
+			this.rigidbody.linearDamping = 1000
 			if (this.timeContactLose > 3) {
 				this.contactLose = false
 				this.timeContactLose = 0
 				this.node.setPosition(PosStartBall.positionX, PosStartBall.positionY)
+				this.rigidbody.linearDamping = 0.5
 				this.timeFly = 0
 			}
 		}
@@ -87,24 +89,24 @@ export class Ball extends Component {
 
 	CheckLose(
 		selfCollider: CircleCollider2D,
-		otherCollider: BoxCollider2D,
+		otherCollider: PolygonCollider2D,
 		contact: IPhysics2DContact | null
 	) {
-		if (otherCollider.name == 'LosePlayer<BoxCollider2D>') {
+		if (otherCollider.name == 'LosePlayer<PolygonCollider2D>') {
 			this.scoreEnemy++
 			this.scoreLabel.string = this.scorePlayer + ' : ' + this.scoreEnemy
 			this.contactLose = true
 			Ball.stepNow = false
 			Ball.hitNow = true
-				if (this.scoreEnemy == 3) this.WindowLose.active = true
+			if (this.scoreEnemy == 3) this.WindowLose.active = true
 		}
-		if (otherCollider.name == 'LoseEnemy<BoxCollider2D>') {
+		if (otherCollider.name == 'LoseEnemy<PolygonCollider2D>') {
 			this.scorePlayer++
 			this.scoreLabel.string = this.scorePlayer + ' : ' + this.scoreEnemy
 			this.contactLose = true
 			Ball.stepNow = false
 			Ball.hitNow = true
-				if (this.scorePlayer == 3) this.WindowWin.active = true
+			if (this.scorePlayer == 3) this.WindowWin.active = true
 		}
 	}
 }

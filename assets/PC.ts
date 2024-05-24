@@ -7,6 +7,8 @@ const { ccclass, property } = _decorator;
 export class PC extends Component {
 	@property({ type: Number })
 	private speed: number
+	@property({ type: Number })
+	private force: number
 	private collider: any
 
 	private rigidbody: any
@@ -25,9 +27,15 @@ export class PC extends Component {
 			if (positionY < this.node.position.y) {
 				if (this.node.position.y > 115) {
 					if (this.node.position.x < positionX - 20)
-						this.rigidbody.applyForceToCenter(new Vec2(this.speed*2000, -this.speed*100), true)
+						this.rigidbody.applyForceToCenter(
+							new Vec2(this.speed * 2000, -this.speed * 100),
+							true
+						)
 					else if (this.node.position.x > positionX + 20)
-						this.rigidbody.applyForceToCenter(new Vec2(-this.speed*2000, -this.speed*100), true)
+						this.rigidbody.applyForceToCenter(
+							new Vec2(-this.speed * 2000, -this.speed * 100),
+							true
+						)
 					else if (
 						this.node.position.x > positionX - 20 &&
 						this.node.position.x < positionX + 20
@@ -44,15 +52,22 @@ export class PC extends Component {
 						Ball.hitNow
 					) {
 						this.rigidbody.applyLinearImpulse(
-							new Vec2(0, -this.speed * 150),
+							new Vec2(0, -this.force * 100),
 							new Vec2(this.node.worldPosition.x, this.node.worldPosition.y)
 						)
 						Ball.hitNow = !Ball.hitNow
 					}
 				} else {
 					if (this.node.position.x < positionX)
-						this.rigidbody.applyForceToCenter(new Vec2(this.speed*1000, 0), true)
-					else this.rigidbody.applyForceToCenter(new Vec2(-this.speed*1000, 0), true)
+						this.rigidbody.applyForceToCenter(
+							new Vec2(this.speed * 1000, 0),
+							true
+						)
+					else
+						this.rigidbody.applyForceToCenter(
+							new Vec2(-this.speed * 1000, 0),
+							true
+						)
 				}
 			}
 		} else {
@@ -64,7 +79,8 @@ export class PC extends Component {
 					)
 			} else if (this.node.position.x > StartPosition.Position.x + 20) {
 				if (this.node.position.y < StartPosition.Position.y - 20)
-					this.rigidbody.applyForceToCenter(new Vec2(-this.speed * 1000, this.speed * 500),
+					this.rigidbody.applyForceToCenter(
+						new Vec2(-this.speed * 1000, this.speed * 500),
 						true
 					)
 			} else if (
@@ -72,7 +88,7 @@ export class PC extends Component {
 				this.node.position.x <= StartPosition.Position.x + 20
 			) {
 				if (this.node.position.y < StartPosition.Position.y - 20)
-					this.rigidbody.applyForceToCenter(new Vec2(0, this.speed*500), true)
+					this.rigidbody.applyForceToCenter(new Vec2(0, this.speed * 500), true)
 			}
 		}
 
