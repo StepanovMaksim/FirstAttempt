@@ -9,6 +9,8 @@ const { ccclass, property } = _decorator;
 export class Hit extends Component {
 	@property({ type: Number })
 	private walk_force: number
+	@property({ type: Number })
+	private hit_force: number
 
 	private score: number = 0
 
@@ -18,7 +20,7 @@ export class Hit extends Component {
 	private rigidbody: any
 	private directionH: number = 0
 	private directionV: number = 0
-//	private walk_force: number = 2000
+	//	private walk_force: number = 2000
 	private jump_force: number = 3500
 	hit: Boolean = false
 
@@ -47,7 +49,11 @@ export class Hit extends Component {
 				),
 				true
 			)
-		else this.rigidbody.applyForceToCenter(new Vec2(0, -this.walk_force * 500), true)
+		else
+			this.rigidbody.applyForceToCenter(
+				new Vec2(0, -this.walk_force * 500),
+				true
+			)
 
 		// if (this.hit) {
 		// 	this.node.setRotation(new Quat(0, 0, this.rotateZ))
@@ -95,7 +101,7 @@ export class Hit extends Component {
 			}
 			case KeyCode.SPACE: {
 				this.rigidbody.applyLinearImpulse(
-					new Vec2(0, 300),
+					new Vec2(0, this.hit_force*100),
 					new Vec2(this.node.worldPosition.x, this.node.worldPosition.y)
 				)
 
