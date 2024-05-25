@@ -37,8 +37,8 @@ export class PC extends Component {
 							true
 						)
 					else if (
-						this.node.position.x > positionX - 20 &&
-						this.node.position.x < positionX + 20
+						this.node.position.x > positionX - 60 &&
+						this.node.position.x < positionX + 60
 					)
 						this.rigidbody.applyForceToCenter(
 							new Vec2(0, -this.speed * 1000),

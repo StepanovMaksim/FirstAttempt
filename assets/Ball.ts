@@ -53,7 +53,10 @@ export class Ball extends Component {
 			if (this.timeContactLose > 3) {
 				this.contactLose = false
 				this.timeContactLose = 0
-				this.node.setPosition(PosStartBall.positionX, PosStartBall.positionY)
+				if (this.scoreEnemy < 3 && this.scorePlayer < 3)
+					this.node.setPosition(PosStartBall.positionX, PosStartBall.positionY)
+				else
+					this.node.setPosition(10000, 10000)
 				this.rigidbody.linearDamping = 0.5
 				this.timeFly = 0
 			}
@@ -107,7 +110,17 @@ export class Ball extends Component {
 			Ball.stepNow = false
 			Ball.hitNow = true
 			if (this.scorePlayer == 3) this.WindowWin.active = true
+			
 		}
+	}
+
+	refreshRound() {
+		this.scoreEnemy = 0;
+		this.scorePlayer = 0;
+		this.node.setPosition(PosStartBall.positionX, PosStartBall.positionY)
+		this.WindowLose.active = false
+		this.WindowWin.active = false
+		this.scoreLabel.string = this.scorePlayer + ' : ' + this.scoreEnemy
 	}
 }
 
