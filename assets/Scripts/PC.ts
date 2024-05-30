@@ -1,14 +1,16 @@
-import { _decorator, BoxCollider2D, CircleCollider2D, Component, Contact2DType, IPhysics2DContact, Node, RigidBody2D, Vec2, Vec3,} from 'cc';
+import { _decorator, BoxCollider2D, CCFloat, CircleCollider2D, Component, Contact2DType, IPhysics2DContact, Node, RigidBody2D, Vec2, Vec3} from 'cc';
 import {positionX, positionY, Ball} from './Ball';
 import { StartPosition } from './StartPosition';
 const { ccclass, property } = _decorator;
 
 @ccclass('PC')
 export class PC extends Component {
-	@property({ type: Number })
+	@property({ type: CCFloat })
 	private speed: number
-	@property({ type: Number })
-	private force: number
+	@property({ type: CCFloat })
+	private forceHit: number
+	@property({ type: CCFloat })
+	private speedForward: number
 	private collider: any
 
 	private rigidbody: any
@@ -41,7 +43,7 @@ export class PC extends Component {
 						this.node.position.x < positionX + 60
 					)
 						this.rigidbody.applyForceToCenter(
-							new Vec2(0, -this.speed * 1000),
+							new Vec2(0, -this.speedForward * 1000),
 							true
 						)
 
@@ -52,7 +54,7 @@ export class PC extends Component {
 						Ball.hitNow
 					) {
 						this.rigidbody.applyLinearImpulse(
-							new Vec2(0, -this.force * 100),
+							new Vec2(0, -this.forceHit * 100),
 							new Vec2(this.node.worldPosition.x, this.node.worldPosition.y)
 						)
 						Ball.hitNow = !Ball.hitNow

@@ -40,6 +40,30 @@
       ],
       "subMetas": {}
     },
+    "53451": {
+      "importer": "gltf-animation",
+      "uuid": "9f4ed770-fe10-422b-82a1-b0d4bcb7935e@53451",
+      "displayName": "",
+      "id": "53451",
+      "name": "Mainline_1.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "speed": 1,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 10
+        },
+        "events": []
+      },
+      "ver": "1.0.17",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
     "68747": {
       "importer": "gltf-embeded-image",
       "uuid": "9f4ed770-fe10-422b-82a1-b0d4bcb7935e@68747",
@@ -50,7 +74,10 @@
         "gltfIndex": 2,
         "fixAlphaTransparencyArtifacts": true,
         "hasAlpha": true,
-        "type": "texture"
+        "type": "texture",
+        "compressSettings": {
+          "useCompressTexture": true
+        }
       },
       "ver": "1.0.3",
       "imported": true,
@@ -132,29 +159,6 @@
       ],
       "subMetas": {}
     },
-    "7a5d8": {
-      "importer": "gltf-animation",
-      "uuid": "9f4ed770-fe10-422b-82a1-b0d4bcb7935e@7a5d8",
-      "displayName": "",
-      "id": "7a5d8",
-      "name": "Mainline.animation",
-      "userData": {
-        "gltfIndex": 0,
-        "wrapMode": 2,
-        "sample": 30,
-        "span": {
-          "from": 0,
-          "to": 10
-        },
-        "events": []
-      },
-      "ver": "1.0.17",
-      "imported": true,
-      "files": [
-        ".cconb"
-      ],
-      "subMetas": {}
-    },
     "f1394": {
       "importer": "gltf-skeleton",
       "uuid": "9f4ed770-fe10-422b-82a1-b0d4bcb7935e@f1394",
@@ -216,7 +220,10 @@
         "gltfIndex": 0,
         "fixAlphaTransparencyArtifacts": true,
         "hasAlpha": true,
-        "type": "texture"
+        "type": "texture",
+        "compressSettings": {
+          "useCompressTexture": true
+        }
       },
       "ver": "1.0.3",
       "imported": true,
@@ -236,7 +243,10 @@
         "gltfIndex": 1,
         "fixAlphaTransparencyArtifacts": true,
         "hasAlpha": true,
-        "type": "texture"
+        "type": "texture",
+        "compressSettings": {
+          "useCompressTexture": true
+        }
       },
       "ver": "1.0.3",
       "imported": true,
@@ -256,7 +266,10 @@
         "gltfIndex": 3,
         "fixAlphaTransparencyArtifacts": true,
         "hasAlpha": true,
-        "type": "texture"
+        "type": "texture",
+        "compressSettings": {
+          "useCompressTexture": true
+        }
       },
       "ver": "1.0.3",
       "imported": true,
@@ -448,11 +461,12 @@
         "fps": 30,
         "splits": [
           {
-            "name": "Mainline",
+            "name": "Mainline_1",
             "from": 0,
             "to": 10,
             "wrapMode": 2,
-            "previousId": "7a5d8"
+            "speed": 1,
+            "previousId": "53451"
           }
         ]
       }

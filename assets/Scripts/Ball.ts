@@ -1,4 +1,4 @@
-import { _decorator, BoxCollider2D, CircleCollider2D, Component, Contact2DType, IPhysics2DContact, Node, RigidBody2D, Vec2, Label, PolygonCollider2D } from 'cc';
+import { _decorator, BoxCollider2D, CircleCollider2D, Component, Contact2DType, IPhysics2DContact, Node, RigidBody2D, Vec2, Label, PolygonCollider2D, random } from 'cc';
 import { PosStartBall } from './PosStartBall';
 const { ccclass, property } = _decorator;
 
@@ -14,6 +14,10 @@ export class Ball extends Component {
 	@property({ type: Node })
 	private WindowLose: Node | null = null
 
+	@property({ type: [Node] })
+	background: Node[] = []
+
+	private BackgroundNow: number = 0
 	private scorePlayer: number = 0
 	private scoreEnemy: number = 0
 	public static stepNow: boolean
@@ -55,8 +59,7 @@ export class Ball extends Component {
 				this.timeContactLose = 0
 				if (this.scoreEnemy < 3 && this.scorePlayer < 3)
 					this.node.setPosition(PosStartBall.positionX, PosStartBall.positionY)
-				else
-					this.node.setPosition(10000, 10000)
+				else this.node.setPosition(10000, 10000)
 				this.rigidbody.linearDamping = 0.5
 				this.timeFly = 0
 			}
@@ -110,17 +113,21 @@ export class Ball extends Component {
 			Ball.stepNow = false
 			Ball.hitNow = true
 			if (this.scorePlayer == 3) this.WindowWin.active = true
-			
 		}
 	}
 
 	refreshRound() {
-		this.scoreEnemy = 0;
-		this.scorePlayer = 0;
+		this.scoreEnemy = 0
+		this.scorePlayer = 0
 		this.node.setPosition(PosStartBall.positionX, PosStartBall.positionY)
 		this.WindowLose.active = false
 		this.WindowWin.active = false
 		this.scoreLabel.string = this.scorePlayer + ' : ' + this.scoreEnemy
+		this.BackgroundNow = Math.floor(Math.random() * (Math.floor(6) - Math.ceil(0)) + Math.ceil(0))
+		for (let index = 0; index < this.background.length; index++) {
+			if (this.BackgroundNow == index) this.background[index].active = true
+			else this.background[index].active = false
+		}
 	}
 }
 

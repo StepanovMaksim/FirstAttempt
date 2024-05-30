@@ -1,5 +1,28 @@
-import { _decorator, Component, Node,  EventKeyboard, macro, Vec2, RigidBody2D, Contact2DType, IPhysics2DContact, Label, Collider2D, BoxCollider2D, CircleCollider2D, input, Input, KeyCode, math, Quat } from 'cc';
+import {
+	_decorator,
+	Component,
+	Node,
+	EventKeyboard,
+	macro,
+	Vec2,
+	RigidBody2D,
+	Contact2DType,
+	IPhysics2DContact,
+	Label,
+	Collider2D,
+	BoxCollider2D,
+	CircleCollider2D,
+	input,
+	Input,
+	KeyCode,
+	math,
+	Quat,
+	CCFloat,
+	EventTouch,
+	EventMouse,
+} from 'cc'
 import { Ball } from './Ball';
+import { TouchJoy, UI_Joystick } from '../Joystick/kylins_easy_controller/UI_Joystick';
 
 const { ccclass, property } = _decorator;
 
@@ -7,10 +30,12 @@ const { ccclass, property } = _decorator;
 
 @ccclass('Hit')
 export class Hit extends Component {
-	@property({ type: Number })
+	@property({ type: CCFloat })
 	private walk_force: number
-	@property({ type: Number })
+	@property({ type: CCFloat })
 	private hit_force: number
+	@property({ type: Node })
+	private JoystickVec2: Node
 
 	private score: number = 0
 
@@ -55,6 +80,23 @@ export class Hit extends Component {
 				true
 			)
 
+			if (TouchJoy) {
+				this.rigidbody.applyForceToCenter(
+					new Vec2(
+						this.JoystickVec2.position.x * 10,
+						this.JoystickVec2.position.y * 10
+					),
+					true
+				)
+			}
+			else 
+			this.rigidbody.applyForceToCenter(
+				new Vec2(
+					this.JoystickVec2.position.x * 0,
+					this.JoystickVec2.position.y * 0
+				),
+				true
+			)
 		// if (this.hit) {
 		// 	this.node.setRotation(new Quat(0, 0, this.rotateZ))
 		// 	this.rotateZ -=0.1
@@ -101,7 +143,7 @@ export class Hit extends Component {
 			}
 			case KeyCode.SPACE: {
 				this.rigidbody.applyLinearImpulse(
-					new Vec2(0, this.hit_force*100),
+					new Vec2(0, this.hit_force * 100),
 					new Vec2(this.node.worldPosition.x, this.node.worldPosition.y)
 				)
 
@@ -138,6 +180,15 @@ export class Hit extends Component {
 				break
 		}
 	}
+
+	public hitBall() {
+		this.rigidbody.applyLinearImpulse(
+			new Vec2(0, this.hit_force * 100),
+			new Vec2(this.node.worldPosition.x, this.node.worldPosition.y)
+		)
+	}
+
+	
 }
 
 
