@@ -7788,8 +7788,8 @@
     ],
     "value": {
       "__type__": "cc.Vec3",
-      "x": -424.863,
-      "y": -266.67,
+      "x": -464.63000000000005,
+      "y": -518.511,
       "z": 0
     }
   },
@@ -7928,7 +7928,7 @@
     "propertyPath": [
       "_left"
     ],
-    "value": 31.22699999999952
+    "value": -8.540000000001328
   },
   {
     "__type__": "cc.TargetInfo",
@@ -7944,7 +7944,7 @@
     "propertyPath": [
       "_right"
     ],
-    "value": 0.4828833125041107
+    "value": 0.5046810936437977
   },
   {
     "__type__": "CCPropertyOverrideInfo",
@@ -7954,7 +7954,7 @@
     "propertyPath": [
       "_top"
     ],
-    "value": 0.48234508040854446
+    "value": 0.7017699028301453
   },
   {
     "__type__": "CCPropertyOverrideInfo",
@@ -7964,7 +7964,7 @@
     "propertyPath": [
       "_bottom"
     ],
-    "value": 20.263124999999775
+    "value": -231.57787500000023
   },
   {
     "__type__": "CCPropertyOverrideInfo",
@@ -7976,8 +7976,8 @@
     ],
     "value": {
       "__type__": "cc.Size",
-      "width": 912.1800000000011,
-      "height": 573.8662500000006
+      "width": 912.1800000000027,
+      "height": 573.8662500000005
     }
   },
   {
@@ -7996,8 +7996,8 @@
     ],
     "value": {
       "__type__": "cc.Vec3",
-      "x": -6.913999999999987,
-      "y": 5.129000000000019,
+      "x": -1632.992,
+      "y": -918.29,
       "z": 0
     }
   },
@@ -8015,7 +8015,7 @@
     "propertyPath": [
       "_left"
     ],
-    "value": -6.914000000000014
+    "value": -1632.992
   },
   {
     "__type__": "cc.TargetInfo",
@@ -8031,7 +8031,7 @@
     "propertyPath": [
       "_right"
     ],
-    "value": 6.914000000000014
+    "value": 1632.992
   },
   {
     "__type__": "CCPropertyOverrideInfo",
@@ -8041,7 +8041,7 @@
     "propertyPath": [
       "_top"
     ],
-    "value": -5.128999999999991
+    "value": 918.29
   },
   {
     "__type__": "CCPropertyOverrideInfo",
@@ -8051,7 +8051,7 @@
     "propertyPath": [
       "_bottom"
     ],
-    "value": 5.128999999999991
+    "value": -918.29
   },
   {
     "__type__": "CCPropertyOverrideInfo",
