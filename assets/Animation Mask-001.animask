@@ -1,0 +1,147 @@
+[
+  {
+    "__type__": "cc.animation.AnimationMask",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "_native": "",
+    "_jointMasks": [
+      {
+        "__id__": 1
+      },
+      {
+        "__id__": 2
+      },
+      {
+        "__id__": 3
+      },
+      {
+        "__id__": 4
+      },
+      {
+        "__id__": 5
+      },
+      {
+        "__id__": 6
+      },
+      {
+        "__id__": 7
+      },
+      {
+        "__id__": 8
+      },
+      {
+        "__id__": 9
+      },
+      {
+        "__id__": 10
+      },
+      {
+        "__id__": 11
+      },
+      {
+        "__id__": 12
+      },
+      {
+        "__id__": 13
+      },
+      {
+        "__id__": 14
+      },
+      {
+        "__id__": 15
+      },
+      {
+        "__id__": 16
+      },
+      {
+        "__id__": 17
+      }
+    ]
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Moho Camera",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Голова",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Голова/B1",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Голова/B1/B2",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Голова/Robot01_1_head.png|0",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Рука правая",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Рука правая/B1",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Рука правая/B1/B2",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Рука правая/Robot01_1_hand.png|1",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Ракетка",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Ракетка/B1",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Ракетка/B1/B2",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Ракетка/racket.png|2",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Рука левая",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Рука левая/B1",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Рука левая/B1/B2",
+    "enabled": true
+  },
+  {
+    "__type__": "cc.JointMask",
+    "path": "Рука левая/Robot01_1_hand.png 2|3",
+    "enabled": true
+  }
+]

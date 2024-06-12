@@ -503,6 +503,37 @@
       "scenes": [
         "1b449cee-a744-482e-93a2-4556c1af6225@c6018"
       ]
+    },
+    "materials": {
+      "1b449cee-a744-482e-93a2-4556c1af6225@28448": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "__editorExtras__": {},
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "6ef1defe-7997-477a-9b35-c18859ff8066",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {}
+        ]
+      }
     }
   }
 }

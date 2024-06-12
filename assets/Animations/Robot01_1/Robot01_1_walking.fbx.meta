@@ -503,6 +503,43 @@
       "scenes": [
         "0c86b276-7735-48b1-a65a-80d0532aee72@5dac9"
       ]
+    },
+    "materials": {
+      "0c86b276-7735-48b1-a65a-80d0532aee72@28448": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "__editorExtras__": {},
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "b546c596-5f73-40be-a426-cff8df144ac8",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 1,
+        "_defines": [
+          {}
+        ],
+        "_states": [
+          {
+            "priority": 64,
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "mainTexture": {
+              "__uuid__": "0c86b276-7735-48b1-a65a-80d0532aee72@3effa",
+              "__expectedType__": "cc.Texture2D"
+            }
+          }
+        ]
+      }
     }
   }
 }
