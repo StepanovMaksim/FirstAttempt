@@ -144,7 +144,7 @@
         "sample": 30,
         "span": {
           "from": 0,
-          "to": 10
+          "to": 2.9959514170040484
         },
         "events": []
       },
@@ -450,7 +450,7 @@
           {
             "name": "Mainline",
             "from": 0,
-            "to": 10,
+            "to": 2.9959514170040484,
             "wrapMode": 2,
             "previousId": "7a5d8"
           }

@@ -94,7 +94,7 @@ export class PC extends Component {
 			}
 		}
 
-		console.log(StartPosition.Position.y)
+		
 	}
 
 	onBeginContact(

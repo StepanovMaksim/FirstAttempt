@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, input, Input, KeyCode, EventKeyboard, Animation, SkeletalAnimation, SkeletalAnimationComponent } from 'cc'
+import { _decorator, Component, Node, input, Input, KeyCode, EventKeyboard, Animation, SkeletalAnimation, SkeletalAnimationComponent, animation } from 'cc'
 const { ccclass, property } = _decorator;
 
 @ccclass('AnimatorController')
@@ -11,10 +11,13 @@ export class AnimatorController extends Component {
 
 	update(deltaTime: number) {}
 
-	public Anim() {
-		const animationComponent = this.node.getComponent(SkeletalAnimation)
-        animationComponent.defaultClip = animationComponent.clips[0]
-        animationComponent.play()
+	public Anim(value: number) {
+		let animationController = this.node.getComponent(animation.AnimationController)
+      //  animationComponent.defaultClip = animationComponent.clips[0]
+        let variables = animationController.getVariables()
+		
+		animationController.setValue('Integer', value)
+		
 	}
 
 start() {
@@ -25,22 +28,22 @@ start() {
 		switch (event.keyCode) {
 			case KeyCode.KEY_A:
 			case KeyCode.ARROW_LEFT: {
-				this.Anim()
+				this.Anim(1)
 				break
 			}
 			case KeyCode.KEY_D:
 			case KeyCode.ARROW_RIGHT: {
-				
+				this.Anim(2)
 				break
 			}
 			case KeyCode.KEY_S:
 			case KeyCode.ARROW_DOWN: {
-				
+				this.Anim(3)
 				break
 			}
 			case KeyCode.KEY_W:
 			case KeyCode.ARROW_UP: {
-				
+				this.Anim(4)
 				break
 			}
 			
