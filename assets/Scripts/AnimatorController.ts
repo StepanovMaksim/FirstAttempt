@@ -65,27 +65,27 @@ start() {
 		switch (event.keyCode) {
 			case KeyCode.KEY_A:
 			case KeyCode.ARROW_LEFT: {
-				
 				break
 			}
 			case KeyCode.KEY_D:
 			case KeyCode.ARROW_RIGHT: {
-				
 				break
 			}
 			case KeyCode.KEY_S:
 			case KeyCode.ARROW_DOWN: {
-				
 				break
 			}
 			case KeyCode.KEY_W:
 			case KeyCode.ARROW_UP: {
-				
 				break
 			}
 			case KeyCode.SPACE: {
-				
+				this.Anim(1)
 				//this.hit = true
+				break
+			}
+			case KeyCode.KEY_E: {
+				this.Anim(1)
 				break
 			}
 			default:

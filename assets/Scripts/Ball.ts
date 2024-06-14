@@ -29,6 +29,8 @@ export class Ball extends Component {
 	private rigidbody: any
 	private startGame: boolean = false
 
+	private PlayerBall: boolean = true
+
 	private timeFly: number = 0
 	vector: Vec2 = new Vec2(0, 0)
 	speedX: number = 0
@@ -59,8 +61,19 @@ export class Ball extends Component {
 			if (this.timeContactLose > 3) {
 				this.contactLose = false
 				this.timeContactLose = 0
-				if (this.scoreEnemy < 3 && this.scorePlayer < 3)
-					this.node.setPosition(PosStartBall.positionX, PosStartBall.positionY, 75)
+				if (this.scoreEnemy < 3 && this.scorePlayer < 3) {
+					if (this.PlayerBall)
+						this.node.setPosition(PosStartBall.positionX, PosStartBall.positionY)
+					else {
+						this.node.setPosition(PosStartBall.StartPosEnemyBall.x, PosStartBall.StartPosEnemyBall.y)
+						Ball.stepNow = true
+						Ball.hitNow = true
+						this.startGame = true
+						this.timeFly = 0
+					}
+						
+				}
+					
 				else this.node.setPosition(10000, 10000)
 				this.rigidbody.linearDamping = 0.5
 				this.timeFly = 0
@@ -98,9 +111,15 @@ export class Ball extends Component {
 			this.startGame = true
 			this.timeFly = 0
 		}
+		if (otherCollider.name == 'BoardPlayer<BoxCollider2D>') {
+			this.PlayerBall = true;
+		}
 		if (otherCollider.name == 'Enemy<BoxCollider2D>') {
 			Ball.stepNow = false
 			this.timeFly = 0
+		}
+		if (otherCollider.name == 'BoardEnemy<BoxCollider2D>') {
+			this.PlayerBall = false
 		}
 	}
 
@@ -116,6 +135,7 @@ export class Ball extends Component {
 			Ball.stepNow = false
 			Ball.hitNow = true
 			if (this.scoreEnemy == 3) this.WindowLose.active = true
+			this.PlayerBall = false
 		}
 		if (otherCollider.name == 'LoseEnemy<PolygonCollider2D>') {
 			this.scorePlayer++
@@ -124,6 +144,7 @@ export class Ball extends Component {
 			Ball.stepNow = false
 			Ball.hitNow = true
 			if (this.scorePlayer == 3) this.WindowWin.active = true
+			this.PlayerBall = true
 		}
 	}
 
