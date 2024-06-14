@@ -18,7 +18,7 @@ export class PC extends Component {
 	start() {
 		this.rigidbody = this.node.getComponent(RigidBody2D)
 
-		this.collider = this.node.getComponent(CircleCollider2D)
+		this.collider = this.node.getComponent(BoxCollider2D)
 		if (this.collider) {
 			this.collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this)
 		}

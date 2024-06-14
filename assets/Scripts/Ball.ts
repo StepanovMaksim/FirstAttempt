@@ -13,7 +13,8 @@ export class Ball extends Component {
 	private WindowWin: Node | null = null
 	@property({ type: Node })
 	private WindowLose: Node | null = null
-
+	@property({type: Number})
+	private MaxSpeed: number
 	@property({ type: [Node] })
 	background: Node[] = []
 
@@ -45,12 +46,13 @@ export class Ball extends Component {
 		this.vector = new Vec2(this.speedX, this.speedY)
 		Ball.stepNow = false
 		Ball.hitNow = true
-		console.log(this.WindowLose)
+		
 	}
 
 	update(deltaTime: number) {
 		positionX = this.node.position.x
 		positionY = this.node.position.y
+		
 		if (this.contactLose) {
 			this.timeContactLose += deltaTime
 			this.rigidbody.linearDamping = 1000
@@ -58,7 +60,7 @@ export class Ball extends Component {
 				this.contactLose = false
 				this.timeContactLose = 0
 				if (this.scoreEnemy < 3 && this.scorePlayer < 3)
-					this.node.setPosition(PosStartBall.positionX, PosStartBall.positionY)
+					this.node.setPosition(PosStartBall.positionX, PosStartBall.positionY, 75)
 				else this.node.setPosition(10000, 10000)
 				this.rigidbody.linearDamping = 0.5
 				this.timeFly = 0
@@ -74,20 +76,29 @@ export class Ball extends Component {
 				this.timeFly = 0
 			}
 		}
+		if (this.rigidbody.linearVelocity.x > this.MaxSpeed)
+			this.rigidbody.linearVelocity = new Vec2(this.MaxSpeed, this.rigidbody.linearVelocity.y)
+		if (this.rigidbody.linearVelocity.y > this.MaxSpeed)
+			this.rigidbody.linearVelocity = new Vec2(this.rigidbody.linearVelocity.x, this.MaxSpeed)
+		if (this.rigidbody.linearVelocity.x < -this.MaxSpeed)
+			this.rigidbody.linearVelocity = new Vec2(-this.MaxSpeed, this.rigidbody.linearVelocity.y)
+		if (this.rigidbody.linearVelocity.y < -this.MaxSpeed)
+			this.rigidbody.linearVelocity = new Vec2(this.rigidbody.linearVelocity.x, -this.MaxSpeed)
+		
 	}
 
 	begin(
 		selfCollider: CircleCollider2D,
-		otherCollider: CircleCollider2D,
+		otherCollider: BoxCollider2D,
 		contact: IPhysics2DContact | null
 	) {
-		if (otherCollider.name == 'Player<CircleCollider2D>') {
+		if (otherCollider.name == 'B1<BoxCollider2D>') {
 			Ball.stepNow = true
 			Ball.hitNow = true
 			this.startGame = true
 			this.timeFly = 0
 		}
-		if (otherCollider.name == 'Enemy<CircleCollider2D>') {
+		if (otherCollider.name == 'Enemy<BoxCollider2D>') {
 			Ball.stepNow = false
 			this.timeFly = 0
 		}

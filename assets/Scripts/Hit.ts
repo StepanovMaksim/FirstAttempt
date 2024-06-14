@@ -142,12 +142,14 @@ export class Hit extends Component {
 				break
 			}
 			case KeyCode.SPACE: {
-				this.rigidbody.applyLinearImpulse(
-					new Vec2(0, this.hit_force * 100),
-					new Vec2(this.node.worldPosition.x, this.node.worldPosition.y)
-				)
+				// this.rigidbody.applyLinearImpulse(
+				// 	new Vec2(0, this.hit_force * 100),
+				// 	new Vec2(this.node.worldPosition.x, this.node.worldPosition.y)
+				// )
 
 				//this.hit = true
+
+				
 				break
 			}
 			default:

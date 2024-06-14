@@ -33,20 +33,30 @@ start() {
 			}
 			case KeyCode.KEY_D:
 			case KeyCode.ARROW_RIGHT: {
-				this.Anim(2)
+				this.Anim(1)
 				break
 			}
 			case KeyCode.KEY_S:
 			case KeyCode.ARROW_DOWN: {
-				this.Anim(3)
+				this.Anim(1)
 				break
 			}
 			case KeyCode.KEY_W:
 			case KeyCode.ARROW_UP: {
-				this.Anim(4)
+				this.Anim(1)
 				break
 			}
-			
+			case KeyCode.SPACE: {
+				this.Anim(4)
+				
+				//this.hit = true
+				break
+			}
+
+			case KeyCode.KEY_E: {
+				this.Anim(5)
+				break
+			}
 			default:
 				break
 		}
@@ -71,6 +81,11 @@ start() {
 			case KeyCode.KEY_W:
 			case KeyCode.ARROW_UP: {
 				
+				break
+			}
+			case KeyCode.SPACE: {
+				
+				//this.hit = true
 				break
 			}
 			default:
